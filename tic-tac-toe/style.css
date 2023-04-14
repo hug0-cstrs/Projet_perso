@@ -1,45 +1,75 @@
+/* Définition des styles de base pour tous les éléments de la page */
 *,
 ::before,
 ::after {
 	box-sizing: border-box;
+	/* La taille des éléments inclut les bordures et les marges */
 	margin: 0;
+	/* Suppression de la marge extérieure */
 	padding: 0;
+	/* Suppression du remplissage interne */
 }
 
+/* Définition des styles pour le corps de la page */
 body {
 	font-family: Arial, Helvetica, sans-serif;
+	/* Police de caractères par défaut */
 	background: linear-gradient(90deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
+	/* Dégradé de couleurs de fond */
 	color: #ff0000;
+	/* Couleur du texte */
 	padding: clamp(20px, 5vw, 50px) 10px 10px;
+	/* Remplissage du corps de la page */
 }
 
-
+/* Définition des styles pour les titres de niveau 2 */
 h2 {
 	text-align: center;
+	/* Alignement du texte au centre */
 }
 
+/* Définition des styles pour le conteneur principal */
 .container {
 	display: grid;
+	/* Affichage en grille */
 	grid-template-columns: repeat(3, 1fr);
+	/* Trois colonnes de largeur égale */
 	grid-gap: 1px;
+	/* Espace entre les cellules */
 	max-width: 400px;
+	/* Largeur maximale du conteneur */
 	margin: 50px auto;
+	/* Marge intérieure horizontale et positionnement vertical automatique */
 	border: 1px solid #f1f1f1;
+	/* Bordure de couleur grise */
 	background: #f1f1f1;
+	/* Couleur de fond grise */
 }
 
+/* Définition des styles pour les cellules du jeu */
 .case {
 	aspect-ratio: 1/1;
+	/* Ratio de largeur/hauteur égal à 1:1 */
 	background: #0066FF;
+	/* Couleur de fond bleue */
 	color: #f1f1f1;
+	/* Couleur du texte blanc */
 	cursor: pointer;
+	/* Curseur de souris en forme de main */
 	font-size: 65px;
+	/* Taille de police de caractères */
 	display: flex;
+	/* Affichage en boîte flexible */
 	justify-content: center;
+	/* Alignement horizontal au centre */
 	align-items: center;
+	/* Alignement vertical au centre */
 }
 
+/* Définition des styles pour l'affichage du résultat */
 .resultat {
 	font-size: 30px;
+	/* Taille de police de caractères */
 	font-weight: 300;
+	/* Épaisseur de police de caractères */
 }

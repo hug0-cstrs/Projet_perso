@@ -14,7 +14,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	/* Police de caractères par défaut */
-	background: linear-gradient(90deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
+	background: #F0FAF6;
 	/* Dégradé de couleurs de fond */
 	color: #ff0000;
 	/* Couleur du texte */
@@ -50,7 +50,7 @@ h2 {
 .case {
 	aspect-ratio: 1/1;
 	/* Ratio de largeur/hauteur égal à 1:1 */
-	background: #0066FF;
+	background: #332F2E;
 	/* Couleur de fond bleue */
 	color: #f1f1f1;
 	/* Couleur du texte blanc */

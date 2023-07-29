@@ -21,7 +21,7 @@ body {
 
 .container {
 	margin: 0 auto;
-	width: 100%;
+	width: 25%;
 	max-width: 1140px;
 	text-align: center;
 	font-size: 0;
@@ -90,5 +90,76 @@ h2.title::after {
 
 .btn.btn-slide-3:hover {
 	box-shadow: inset 200px 0 0 0 #303439;
+
+}
+
+/* Slide 4 */
+.btn.btn-slide-4 {
+	box-shadow: inset 0 0 0 0 #303439;
+}
+
+.btn.btn-slide-4:hover {
+	box-shadow: inset -200px 0 0 0 #303439;
+
+}
+
+/* Slide 5 */
+.btn.btn-slide-5 {
+	box-shadow: inset 0 0 0 0 #303439;
+}
+
+.btn.btn-slide-5:hover {
+	box-shadow: inset 0 0 0 50px #303439;
+
+}
+
+/* Slide 6 */
+.btn.btn-slide-6 {
+	box-shadow: inset 0 0 0 50px mediumseagreen;
+}
+
+.btn.btn-slide-6:hover {
+	box-shadow: inset 0 0 0 0 #303439;
+
+}
+
+/* Slide 7 */
+.btn.btn-slide-7 {
+	box-shadow: inset 0 0 0 0 #303439;
+}
+
+.btn.btn-slide-7:hover {
+	box-shadow: inset 200px 50px 0 0 #303439;
+
+}
+
+/* Slide 8 */
+.btn.btn-slide-8 {
+	box-shadow: inset 0 0 0 0 #303439;
+}
+
+.btn.btn-slide-8:hover {
+	box-shadow: inset -200px -50px 0 0 #303439;
+
+}
+
+/* Slide 9 */
+.btn.btn-slide-9 {
+	box-shadow: inset 0 0 0 0 #303439;
+}
+
+.btn.btn-slide-9:hover {
+	box-shadow: inset 0 0 200px 0 #303439;
+
+}
+
+/* Slide 10 */
+.btn.btn-slide-10 {
+	background: #303439;
+	box-shadow: inset 0 0 200px 0 mediumseagreen;
+}
+
+.btn.btn-slide-10:hover {
+	box-shadow: inset 0 0 0 0 mediumseagreen;
 
 }

@@ -24,7 +24,7 @@ body {
 	line-height: 2.6rem;
 	position: relative;
 	text-align: center;
-    	width: 2.6rem;
+	width: 2.6rem;
 }
 
 .icon-button span {
@@ -36,11 +36,8 @@ body {
 	left: 50%;
 	top: 50%;
 	margin: 0;
-	-webkit-transition: all 0.3s;
-    	-moz-transition: all 0.3s;
-    	-o-transition: all 0.3s;
-    	transition: all 0.3s;
-    	width: 0;
+	transition: all 0.3s;
+	width: 0;
 }
 
 .icon-button:hover span {
@@ -50,26 +47,21 @@ body {
 	margin: -1.3rem;
 }
 
-.icon-button i {
+.icon-button ion-icon {
 	position: absolute;
 	background: none;
 	color: white;
-	height: 2.6rem;
-	line-height: 2.6rem;
-	width: 2.6rem;
-	left: 0;
-	top: 0;
-	-webkit-transition: all 0.3s;
-    	-moz-transition: all 0.3s;
-    	-o-transition: all 0.3s;
-    	transition: all 0.3s;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	width: 1.6rem;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%); /* Added to center the icon */
+	transition: all 0.3s;
 	z-index: 10;
 }
 
-.twitter span {
-	background-color: #4099ff;
-}
-
+/* Updated the span styles for each social media icon */
 .twitter span {
 	background-color: #4099ff;
 }
@@ -79,7 +71,7 @@ body {
 }
 
 .instagram span {
-	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
 .youtube span {
@@ -90,37 +82,36 @@ body {
 	background-color: #cb2027;
 }
 
-.icon-button .icon-twitter {
+.icon-button ion-icon[name="logo-twitter"] {
 	color: #4099ff;
 }
 
-.icon-button .icon-facebook {
+.icon-button ion-icon[name="logo-facebook"] {
 	color: #3B5998;
 }
 
-.icon-button .fa-instagram {
+.icon-button ion-icon[name="logo-instagram"] {
 	color: #cb2027;
 }
 
-.icon-button .fa-youtube {
+.icon-button ion-icon[name="logo-youtube"] {
 	color: #bb0000;
 }
 
-.icon-button .fa-pinterest {
+.icon-button ion-icon[name="logo-pinterest"] {
 	color: #cb2027;
 }
 
-.icon-button:hover .icon-twitter,
-.icon-button:hover .icon-facebook,
-.icon-button:hover .fa-instagram,
-.icon-button:hover .fa-youtube,
-.icon-button:hover .fa-pinterest {
-    color: white;
+.icon-button:hover ion-icon[name="logo-twitter"],
+.icon-button:hover ion-icon[name="logo-facebook"],
+.icon-button:hover ion-icon[name="logo-instagram"],
+.icon-button:hover ion-icon[name="logo-youtube"],
+.icon-button:hover ion-icon[name="logo-pinterest"] {
+	color: white;
 }
 
 /* Responsive */
-
-@media all and (max-width : 680px) {
+@media all and (max-width: 680px) {
 	.icon-button {
 		width: 1.6rem;
 		height: 1.6rem;
@@ -135,16 +126,22 @@ body {
 		width: 1.6rem;
 		height: 1.6rem;
 	}
-	.icon-button i {
-		width: 1.6rem;
-		height: 1.6em;
-		line-height: 1.6rem;
+
+	/* Updated the position of ion-icon for responsiveness */
+	.icon-button ion-icon {
+		height: 1rem;
+		line-height: 1rem;
+		width: 1rem;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	body {
 		padding: 10px;
 	}
-	
+
+	/* Hide Pinterest icon on smaller screens */
 	.pinterest {
 		display: none;
 	}

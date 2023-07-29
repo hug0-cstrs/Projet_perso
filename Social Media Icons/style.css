@@ -1,0 +1,151 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 2.5rem;
+}
+
+body {
+	background-color: #fff;
+	padding: 25px;
+	text-align: center;
+}
+
+.icon-button {
+	background-color: white;
+	border-radius: 2.6rem;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1.3rem;
+	height: 2.6rem;
+	line-height: 2.6rem;
+	position: relative;
+	text-align: center;
+    	width: 2.6rem;
+}
+
+.icon-button span {
+	position: absolute;
+	border-radius: 0;
+	display: block;
+	height: 0;
+	width: 0;
+	left: 50%;
+	top: 50%;
+	margin: 0;
+	-webkit-transition: all 0.3s;
+    	-moz-transition: all 0.3s;
+    	-o-transition: all 0.3s;
+    	transition: all 0.3s;
+    	width: 0;
+}
+
+.icon-button:hover span {
+	width: 2.6rem;
+	height: 2.6rem;
+	border-radius: 2.6rem;
+	margin: -1.3rem;
+}
+
+.icon-button i {
+	position: absolute;
+	background: none;
+	color: white;
+	height: 2.6rem;
+	line-height: 2.6rem;
+	width: 2.6rem;
+	left: 0;
+	top: 0;
+	-webkit-transition: all 0.3s;
+    	-moz-transition: all 0.3s;
+    	-o-transition: all 0.3s;
+    	transition: all 0.3s;
+	z-index: 10;
+}
+
+.twitter span {
+	background-color: #4099ff;
+}
+
+.twitter span {
+	background-color: #4099ff;
+}
+
+.facebook span {
+	background-color: #3b5998;
+}
+
+.instagram span {
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+.youtube span {
+	background-color: #bb0000;
+}
+
+.pinterest span {
+	background-color: #cb2027;
+}
+
+.icon-button .icon-twitter {
+	color: #4099ff;
+}
+
+.icon-button .icon-facebook {
+	color: #3B5998;
+}
+
+.icon-button .fa-instagram {
+	color: #cb2027;
+}
+
+.icon-button .fa-youtube {
+	color: #bb0000;
+}
+
+.icon-button .fa-pinterest {
+	color: #cb2027;
+}
+
+.icon-button:hover .icon-twitter,
+.icon-button:hover .icon-facebook,
+.icon-button:hover .fa-instagram,
+.icon-button:hover .fa-youtube,
+.icon-button:hover .fa-pinterest {
+    color: white;
+}
+
+/* Responsive */
+
+@media all and (max-width : 680px) {
+	.icon-button {
+		width: 1.6rem;
+		height: 1.6rem;
+		line-height: 1.6rem;
+		font-size: 0.8rem;
+		border-radius: 1.6rem;
+	}
+
+	.icon-button:hover span {
+		margin: -0.8rem;
+		border-radius: 1.6rem;
+		width: 1.6rem;
+		height: 1.6rem;
+	}
+	.icon-button i {
+		width: 1.6rem;
+		height: 1.6em;
+		line-height: 1.6rem;
+	}
+
+	body {
+		padding: 10px;
+	}
+	
+	.pinterest {
+		display: none;
+	}
+}

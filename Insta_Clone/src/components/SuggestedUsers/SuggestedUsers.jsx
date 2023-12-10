@@ -20,14 +20,14 @@ const SuggestedUsers = () => {
         </Flex>
             
         {/* Suggested user */}
-        <SuggestedUser name="Dan Abrahmov" followers={1645} avatar="https://bit.ly/dan-abramov" />
-        <SuggestedUser name="Ryan Florence" followers={419} avatar="https://bit.ly/ryan-florence"/>
-        <SuggestedUser name="Christian Nwamba" followers={764} avatar="https://bit.ly/code-beast"/>
+        <SuggestedUser name="Kylie Jenner" followers={"399 M"} avatar="https://resize-elle.ladmedia.fr/rcrop/1024,1024/img/var/plain_site/storage/images/beaute/news-beaute/beaute-des-stars/kylie-jenner-mes-soeurs-et-ma-mere-sont-mes-icones-beaute-3865885/93209302-1-fre-FR/Kylie-Jenner-mes-soeurs-et-ma-mere-sont-mes-icones-beaute.jpg" />
+        <SuggestedUser name="therock" followers={"394 M"} avatar="https://risibank.fr/cache/medias/0/13/1379/137965/full.png"/>
+        <SuggestedUser name="Charlie Puth" followers={"18,1 M"} avatar="https://static1.purepeople.com/articles/3/46/64/53/@/6718213-charlie-puth-photocall-du-gala-de-l-am-1200x0-4.jpg"/>
 
         <Box fontSize={12} color={"gray.500"} mt={5} alignSelf={"start"}>
             © 2023 Built By {" "}
             <Link href="https://github.com/hug0-cstrs" target="_blank" color={"blue.500"} fontSize={14}>
-                As a programmer
+                Hugo
             </Link>
         </Box>
     </VStack>

@@ -5,14 +5,14 @@ const ProfileHeader = () => {
         <Flex gap={{base:4,sm:10}} py={10} direction={{base:"column",sm:"row"}}>
 
             <AvatarGroup size={{base:"xl",md:"2xl"}} justifyContent={"center"} alignSelf={"flex-start"} mx={"auto"}>
-                <Avatar name="As a Programmer" src="/profilepic.png" alt="As a Programmer logo" />
+                <Avatar name="Hugo Castéras" src="/profilepic.png" alt="Hugo Castéras logo" />
             </AvatarGroup>
 
             <VStack alignItems={"start"} gap={2} mx={"auto"} flex={1}>
                 <Flex gap={4} direction={{base:"column",sm:"row"}} justifyContent={{base:"center",sm:"flex-start"}} alignItems={"center"} w={"full"}>
                     
                     <Text fontSize={{base:"sm",md:"lg"}}>
-                        asaprogrammer_
+                    Hugo Castéras
                     </Text>
 
                     <Flex gap={4} alignItems={"center"} justifyContent={"center"}>
@@ -43,9 +43,9 @@ const ProfileHeader = () => {
                 </Flex>
 
                 <Flex alignItems={"center"} gap={4}>
-                    <Text fontSize={"sm"} fontWeight={"bold"}>As a Programmer</Text>
+                    <Text fontSize={"sm"} fontWeight={"bold"}>Student Programmer</Text>
                 </Flex>
-                <Text fontSize={"sm"} >Tutorials that are meant to level up your skills as a programmer</Text>
+                <Text fontSize={"sm"} >Tutorials to improve my skills as programmer</Text>
             </VStack>
         </Flex>
     )

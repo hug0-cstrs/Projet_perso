@@ -21,7 +21,6 @@ import { MdDelete } from "react-icons/md";
 import Comment from "../Comment/Comment";
 import PostFooter from "../FeedPosts/PostFooter";
 
-
 const ProfilePost = ({ img }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -116,10 +115,10 @@ const ProfilePost = ({ img }) => {
                     <Avatar
                       src="/profilepic.png"
                       size={"sm"}
-                      name="As a programmer"
+                      name="Hugo Castéras"
                     />
                     <Text fontWeight={"bold"} fontSize={12}>
-                      asaprogrammer_
+                      Hugo Castéras
                     </Text>
                   </Flex>
 
@@ -142,23 +141,23 @@ const ProfilePost = ({ img }) => {
                 >
                   <Comment
                     createdAt="1d ago"
-                    username="asaprogrammer_"
+                    username="Hugo Castéras"
                     profilepic="/profilepic.png"
-                    text={"Dummy images from unsplash"}
+                    text={"Dummy images"}
                   />
 
                   <Comment
                     createdAt="12h ago"
-                    username="abrahmov"
-                    profilepic={"https://bit.ly/dan-abramov"}
-                    text={"Nice pic"}
+                    username="Cristiano Ronaldo"
+                    profilepic={"https://cdn.buzznews.ca/2022/04/5892604c4ec90.jpeg"}
+                    text={"Good clone bro!"}
                   />
 
                   <Comment
                     createdAt="3h ago"
-                    username="kentdodds"
-                    profilepic={"https://bit.ly/kent-c-dodds"}
-                    text={"Good clone bro!"}
+                    username="Scarlett Johansson"
+                    profilepic={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwLZ0zGAgPnw7N-7AOUjNOyJaXYV-HUjL47A&usqp=CAU"}
+                    text={"Nice pic"}
                   />
                 </VStack>
 

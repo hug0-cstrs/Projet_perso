@@ -1,75 +1,236 @@
-/* Définition des styles de base pour tous les éléments de la page */
-*,
-::before,
-::after {
-	box-sizing: border-box;
-	/* La taille des éléments inclut les bordures et les marges */
-	margin: 0;
-	/* Suppression de la marge extérieure */
-	padding: 0;
-	/* Suppression du remplissage interne */
+/* GENERAL */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --bg-green: linear-gradient(
+    90deg,
+    rgba(4, 57, 46, 1) 0%,
+    rgba(0, 153, 102, 1) 100%
+  );
+  --bg-red: linear-gradient(90deg, #e9d022 0%, #e60b09 100%);
+  --bg-brown: linear-gradient(
+    90deg,
+    rgba(99, 61, 0, 1) 0%,
+    rgba(149, 93, 0, 1) 100%;
+  );
+  --bg-black: rgb(0, 0, 0);
+  --bg-white: white;
+  --bg-modal: #0e110eaf;
+  --text-white: white;
+  --text-yellow: rgb(149, 93, 0);
+  --text-red: rgb(207, 35, 35);
+  --text-dark: rgb(54, 54, 54);
+  --text-light: #c7c7c7;
+  --text-gold: rgb(255, 217, 0);
+  --bg-gradient: linear-gradient(90deg, #6ef195 0%, #00e3fd 100%);
+  --bg-gradient-2: linear-gradient(90deg, #00e3fd 0%, #ffed00 100%);
+  --dark: #080808;
+  --border: 0.1rem solid rgb(224, 224, 224);
 }
 
-/* Définition des styles pour le corps de la page */
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	/* Police de caractères par défaut */
-	background: #F0FAF6;
-	/* Dégradé de couleurs de fond */
-	color: #ff0000;
-	/* Couleur du texte */
-	padding: clamp(20px, 5vw, 50px) 10px 10px;
-	/* Remplissage du corps de la page */
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-gradient);
 }
 
-/* Définition des styles pour les titres de niveau 2 */
-h2 {
-	text-align: center;
-	/* Alignement du texte au centre */
+h1 {
+  margin: 0;
+  font-size: 1rem;
 }
 
-/* Définition des styles pour le conteneur principal */
-.container {
-	display: grid;
-	/* Affichage en grille */
-	grid-template-columns: repeat(3, 1fr);
-	/* Trois colonnes de largeur égale */
-	grid-gap: 1px;
-	/* Espace entre les cellules */
-	max-width: 400px;
-	/* Largeur maximale du conteneur */
-	margin: 50px auto;
-	/* Marge intérieure horizontale et positionnement vertical automatique */
-	border: 1px solid #f1f1f1;
-	/* Bordure de couleur grise */
-	background: #f1f1f1;
-	/* Couleur de fond grise */
+h1:hover,
+h2:hover {
+  cursor: default;
 }
 
-/* Définition des styles pour les cellules du jeu */
-.case {
-	aspect-ratio: 1/1;
-	/* Ratio de largeur/hauteur égal à 1:1 */
-	background: #332F2E;
-	/* Couleur de fond bleue */
-	color: #f1f1f1;
-	/* Couleur du texte blanc */
-	cursor: pointer;
-	/* Curseur de souris en forme de main */
-	font-size: 65px;
-	/* Taille de police de caractères */
-	display: flex;
-	/* Affichage en boîte flexible */
-	justify-content: center;
-	/* Alignement horizontal au centre */
-	align-items: center;
-	/* Alignement vertical au centre */
+/* INFO */
+
+#info {
+  text-align: center;
+  width: 15rem;
+  color: var(--text-red);
 }
 
-/* Définition des styles pour l'affichage du résultat */
-.resultat {
-	font-size: 30px;
-	/* Taille de police de caractères */
-	font-weight: 300;
-	/* Épaisseur de police de caractères */
+#info__title {
+  font-size: 2rem;
+}
+
+.info__player {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: var(--border);
+  color: var(--dark);
+  background: var(--bg-white);
+}
+
+.info__player__icon {
+  height: 1.3rem;
+  padding-top: 0.13rem;
+}
+
+.cross {
+  background-image: url(images/cross.png);
+}
+
+.circle {
+  background-image: url(images/circle.png);
+}
+
+.cross,
+.circle {
+  background-size: cover;
+}
+
+/* GRID */
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 25rem;
+  width: 25rem;
+  grid-gap: 0.4rem;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  background: var(--bg-black);
+}
+
+.grid__square {
+  background-color: var(--bg-white);
+  border-radius: 0.3rem;
+  border: var(--border);
+}
+
+.grid__square:hover {
+  cursor: pointer;
+}
+
+/* INSTRUCTIONS */
+
+#instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15rem;
+}
+
+#instructions__text {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--text-red);
+}
+
+#instructions__btn {
+  cursor: pointer;
+  width: 16rem;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  border-radius: 2rem;
+  background: var(--text-white);
+  border: var(--border);
+  color: var(--text-dark);
+}
+
+#instructions__btn:active {
+  transform: translateY(0.125rem);
+}
+
+/* MODAL */
+
+#modal {
+  display: none;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-modal);
+}
+
+#modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 65%;
+  width: 40%;
+  border-radius: 5rem;
+  color: var(--text-white);
+  background: var(--bg-gradient);
+  border: var(--dark) solid 0.1rem;
+}
+
+#modal__content h2 {
+  font-size: 2rem;
+}
+
+#modal__content button {
+  cursor: pointer;
+  font-weight: bold;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  background: var(--text-white);
+  border: var(--border);
+  color: var(--text-dark);
+}
+
+/* FORM */
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  display: none;
+}
+
+input {
+  margin: 1.25rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  padding: 0.625rem 1.25rem;
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+input[type="submit"]:active {
+  transform: translateY(0.125rem);
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1100px) {
+  #grid {
+    width: 18.75rem;
+    height: 18.75rem;
+  }
+  #info__title {
+    margin: 0 0 1rem;
+  }
+  body {
+    align-content: center;
+  }
+  #modal__content {
+    text-align: center;
+    height: 60%;
+    width: 80%;
+  }
+  input {
+    width: 10rem;
+  }
 }

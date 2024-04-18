@@ -1,120 +1,211 @@
-// Définition de la variable player qui va définir quel joueur joue en premier
-let player = "X";
+// DOM ELEMENTS
 
-// Récupération de l'élément HTML où l'on affiche l'information du joueur actuel
-const info = document.querySelector(".resultat");
-// Affichage du joueur qui doit jouer en premier
-info.textContent = `Au tour de ${player}`;
+const squareOne = document.getElementById("grid__square-1");
+const squareTwo = document.getElementById("grid__square-2");
+const squareThree = document.getElementById("grid__square-3");
+const squareFour = document.getElementById("grid__square-4");
+const squareFive = document.getElementById("grid__square-5");
+const squareSix = document.getElementById("grid__square-6");
+const squareSeven = document.getElementById("grid__square-7");
+const squareEight = document.getElementById("grid__square-8");
+const squareNine = document.getElementById("grid__square-9");
+const allSquares = document.querySelectorAll(".grid__square");
 
-// Récupération de toutes les cases de la grille
-const cells = document.querySelectorAll(".case");
+const playerOneScore = document.getElementById("info__player__score1");
+const playerTwoScore = document.getElementById("info__player__score2");
 
-// Ajout d'un event listener sur chaque case pour détecter les clics
-cells.forEach((cell) => cell.addEventListener("click", handleClick));
+const infoText = document.getElementById("instructions__text");
+const startGameBtn = document.getElementById("instructions__btn");
 
-// Initialisation du tableau de jeu
-const game = ["", "", "", "", "", "", "", "", ""];
-// Verrou qui empêche les clics sur les cases si une partie est terminée
-let lock = false;
+const modal = document.getElementById("modal");
 
-// Fonction appelée à chaque clic sur une case
-function handleClick(e) {
-	// Récupération de la case cliquée
-	const currentClick = e.target;
-	// Récupération de l'indice de la case cliquée
-	const caseIndex = currentClick.getAttribute("data-index");
+// VARIABLES
 
-	// Vérification que la case n'a pas déjà été jouée et que la partie n'est pas terminée
-	if (game[caseIndex] !== "" || lock) {
-		return;
-	}
+const players = {
+  playerOne: { name: "Hugo", wins: 0 },
+  playerTwo: { name: "Tom", wins: 0 },
+};
 
-	// Enregistrement du coup joué dans le tableau de jeu
-	game[caseIndex] = player;
-	// Affichage du symbole correspondant au joueur dans la case cliquée
-	currentClick.textContent = player;
+let move = 1;
+let nextPlayer = players.playerOne.name;
+let pastPlayer;
+let currentImage = "cross";
+let playerHasWon = false;
 
-	// Vérification si la partie est terminée ou non
-	verification();
+// SQUARE CLICKING
+
+function addSquareClick() {
+  allSquares.forEach((square) => {
+    square.addEventListener("click", squareClick);
+  });
 }
 
-// Tableau contenant toutes les combinaisons gagnantes possibles
-const combinaisonsGagnantes = [
-	[0, 1, 2],
-	[3, 4, 5],
-	[6, 7, 8],
-	[0, 3, 6],
-	[1, 4, 7],
-	[2, 5, 8],
-	[0, 4, 8],
-	[2, 4, 6],
-];
-
-// Fonction qui vérifie si la partie est terminée
-function verification() {
-	// Parcours de toutes les combinaisons gagnantes possibles
-	for (let i = 0; i < combinaisonsGagnantes.length; i++) {
-		// Récupération de la combinaison en cours de vérification
-		const combinationsCheck = combinaisonsGagnantes[i];
-
-		// Récupération des symboles joués dans chaque case de la combinaison
-		let a = game[combinationsCheck[0]];
-		let b = game[combinationsCheck[1]];
-		let c = game[combinationsCheck[2]];
-
-		// Si une case est vide, on passe à la combinaison suivante
-		if (a === "" || b === "" || c === "") {
-			continue;
-		}
-		// Si les trois symboles sont identiques, la partie est terminée et le joueur correspondant a gagné
-		else if (a === b && b === c) {
-			info.textContent = `Le joueur ${player} a gagné ! Appuyez sur Entrée ou F5 pour recommencer.`;
-			// Verrouillage des clics sur les cases pour empêcher de jouer une fois la partie terminée
-			lock = true;
-			return;
-		}
-	}
-
-
-	// match nul, toutes les cases sont prise, sans gagnant.
-	if (!game.includes("")) {
-		info.textContent = `Match Nul ! Appuyez sur Entrée ou F5 pour recommencer.`;
-		lock = true;
-		return;
-	}
-
-	// Appelle la fonction pour initialiser le jeu
-	switchPlayer();
+function removeSquareClick() {
+  allSquares.forEach((square) => {
+    square.removeEventListener("click", squareClick);
+  });
 }
 
-function switchPlayer() {
-	player = player === "X" ? "O" : "X";
-	info.textContent = `Au tour de ${player}`;
+function squareClick() {
+  if (!this.classList.contains("cross") && !this.classList.contains("circle")) {
+    this.classList.add(`${currentImage}`);
+    incrementMove();
+  }
 }
 
-// Ajoute un écouteur d'événements pour détecter l'appui sur la touche Entrée
-document.addEventListener("keydown", function (event) {
-	if (event.key === "Enter") {
-		// Redémarre le jeu
-		resetGame();
-	}
-});
+// INCREMENT MOVE
 
-// Fonction pour réinitialiser le jeu
-function resetGame() {
-	// Réinitialise toutes les cases à leur état initial
-	cells.forEach((cell) => {
-		cell.textContent = "";
-	});
-
-	// Réinitialise le tableau de jeu
-	game.fill("");
-
-	// Réinitialise le verrouillage et remet le tour du joueur X
-	lock = false;
-	player = "X";
-	info.textContent = `Au tour de ${player}`;
+function incrementMove() {
+  move += 1;
+  if (move % 2 !== 0) {
+    nextPlayer = players.playerOne.name;
+    pastPlayer = players.playerTwo.name;
+    currentImage = "cross";
+    infoText.innerHTML = `${players.playerOne.name}'s turn`;
+  } else {
+    nextPlayer = players.playerTwo.name;
+    pastPlayer = players.playerOne.name;
+    currentImage = "circle";
+    infoText.innerHTML = `${players.playerTwo.name}'s turn`;
+  }
+  checkForWin();
+  checkForTie();
 }
 
-// Appelle la fonction pour initialiser le jeu
-switchPlayer();
+// CHECK FOR WIN
+
+function checkForWin() {
+  const lines = [
+    [squareOne, squareTwo, squareThree],
+    [squareFour, squareFive, squareSix],
+    [squareSeven, squareEight, squareNine],
+    [squareOne, squareFour, squareSeven],
+    [squareTwo, squareFive, squareEight],
+    [squareThree, squareSix, squareNine],
+    [squareOne, squareFive, squareNine],
+    [squareThree, squareFive, squareSeven],
+  ];
+  for (const line of lines) {
+    const hasCross = line.every((square) => square.classList.contains("cross"));
+    const hasCircle = line.every((square) =>
+      square.classList.contains("circle")
+    );
+    if (hasCross || hasCircle) {
+      const winner = hasCross ? players.playerOne : players.playerTwo;
+      winner.wins += 1;
+      updateScores();
+      playerWon();
+      return;
+    }
+  }
+}
+
+function updateScores() {
+  playerOneScore.innerHTML = players.playerOne.wins;
+  playerTwoScore.innerHTML = players.playerTwo.wins;
+}
+
+function playerWon() {
+  infoText.innerHTML = `${pastPlayer} won!`;
+  playerHasWon = true;
+  continueGame();
+}
+
+// CHECK FOR TIE
+
+function checkForTie() {
+  const squares = [
+    squareOne,
+    squareTwo,
+    squareThree,
+    squareFour,
+    squareFive,
+    squareSix,
+    squareSeven,
+    squareEight,
+    squareNine,
+  ];
+
+  const allSquaresFilled = squares.every((square) => {
+    return (
+      square.classList.contains("cross") || square.classList.contains("circle")
+    );
+  });
+
+  if (allSquaresFilled && !playerHasWon) {
+    infoText.innerHTML = "It's a tie!";
+    continueGame();
+  }
+}
+
+// CONTINUE / RESTART / RESET
+
+function continueGame() {
+  removeSquareClick();
+  setTimeout(() => {
+    reset();
+  }, 2000);
+}
+
+function restartGame() {
+  removeSquareClick();
+  reset();
+}
+
+function reset() {
+  allSquares.forEach((square) => {
+    square.classList = "grid__square";
+  });
+  addSquareClick();
+  playerHasWon = false;
+  infoText.innerHTML = `${nextPlayer}'s turn to start`;
+}
+
+// START GAME
+
+function startGame() {
+  startGameBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+  });
+
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const player1Input = document
+      .getElementById("player1")
+      .value.trim()
+      .toLowerCase();
+    const player2Input = document
+      .getElementById("player2")
+      .value.trim()
+      .toLowerCase();
+
+    const player1InputCap =
+      player1Input.charAt(0).toUpperCase() + player1Input.slice(1);
+    const player2InputCap =
+      player2Input.charAt(0).toUpperCase() + player2Input.slice(1);
+
+    players.playerOne.name = player1InputCap;
+    players.playerTwo.name = player2InputCap;
+    nextPlayer = player1InputCap;
+
+    document.getElementById("info__player__name1").innerHTML =
+      players.playerOne.name;
+    document.getElementById("info__player__name2").innerHTML =
+      players.playerTwo.name;
+
+    players.playerOne.wins = 0;
+    players.playerTwo.wins = 0;
+    updateScores();
+
+    infoText.innerHTML = `${players.playerOne.name}'s turn to start`;
+    modal.style.display = "none";
+
+    startGameBtn.innerHTML = "Restart Game";
+    addSquareClick();
+    restartGame();
+  });
+}
+
+startGame();

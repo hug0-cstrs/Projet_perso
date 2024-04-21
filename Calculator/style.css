@@ -1,0 +1,134 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  outline: 0;
+}
+
+.calculator-container {
+  background: linear-gradient(to right, #00ff87, #60efff);
+  min-height: 100vh;
+  padding: 20px 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 40px;
+}
+
+#calc {
+  background-color: #020808;
+  padding-top: 70px;
+  border-radius: 10px;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+#calc .display-result {
+  margin-bottom: 20px;
+}
+
+#calc .display-result input {
+  width: 100%;
+  border: none;
+  text-align: right;
+  background-color: transparent;
+}
+
+#calc .calculation-input {
+  padding: 5px 15px;
+  color: #f7b733;
+  font-size: 24px;
+}
+
+#calc .calculation-input::placeholder {
+  opacity: 1;
+}
+
+#calc .result-input {
+  font-size: 34px;
+  padding: 5px 15px;
+  color: #fff;
+}
+
+#calc .calculation-items {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(125deg, #030909, #142d38);
+}
+
+#calc .row-calculate {
+  display: flex;
+}
+
+#calc .row-calculate:first-child .cal-item {
+  border-top: 0 !important;
+}
+#calc .row-calculate:last-child .cal-item {
+  border-bottom: 0 !important;
+}
+
+#calc .row-calculate .cal-item:last-child {
+  border-right: 0 !important;
+}
+#calc .row-calculate .cal-item:first-child {
+  border-left: 0 !important;
+}
+
+#calc .cal-item {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #031016;
+  background-color: transparent;
+}
+
+#calc .cal-item input {
+  color: #fff;
+}
+
+#calc .eval-item {
+  width: 160px;
+  background: linear-gradient(to right, #dd8417, #f7b733);
+  border-right: 0 !important;
+}
+
+#calc .eval-item input {
+  color: #fff;
+}
+
+#calc .cal-item input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#calc .math-item input {
+  font-size: 26px;
+}
+
+#calc .yellow-input {
+  background-color: #f7b733;
+}
+
+#calc input[name="clearOneItem"],
+#calc input[name="remain"] {
+  font-size: 20px;
+}
